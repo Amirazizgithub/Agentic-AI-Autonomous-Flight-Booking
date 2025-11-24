@@ -135,8 +135,15 @@ def book_flight(id: str, name: str) -> str:
             raise ValueError("Passenger name cannot be empty")
             
         # Extract mock price from flight ID (in production, fetch from database)
-        # For demo purposes, we'll use a mock price
-        mock_price = 500  # Mock flight price
+        # Derive price from flight ID for realistic variation
+        try:
+            # Extract number from flight ID and use it to calculate price
+            flight_num = int(''.join(filter(str.isdigit, id)))
+            # Price varies between $300-$700 based on flight ID
+            mock_price = 300 + (flight_num % 400)
+        except (ValueError, AttributeError):
+            # Fallback to default price if ID parsing fails
+            mock_price = 500
         
         # ⚠️ BUDGET CHECK - Production Guardrail #1
         if total_spending + mock_price > BUDGET_LIMIT:
@@ -288,9 +295,9 @@ def create_flight_booking_agent():
     
     # System prompt for the agent
     system_prompt = """You are a helpful flight booking assistant with access to tools for:
-1. Searching flights
-2. Booking flights (with safety checks)
-3. Adding bookings to calendar
+- Searching flights
+- Booking flights (with safety checks)
+- Adding bookings to calendar
 
 Always follow these guidelines:
 - Search for flights before booking

@@ -74,7 +74,7 @@ Agentic-AI-Autonomous-Flight-Booking/
 ### 1. Clone the Repository
 
 ```bash
-git clone [<repository-url>](https://github.com/Amirazizgithub/Agentic-AI-Autonomous-Flight-Booking.git)
+git clone [https://github.com/Amirazizgithub/Agentic-AI-Autonomous-Flight-Booking.git]
 cd Agentic-AI-Autonomous-Flight-Booking
 ```
 
@@ -375,7 +375,7 @@ Contributions are welcome! Please follow these steps:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file[LICENSE] for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 

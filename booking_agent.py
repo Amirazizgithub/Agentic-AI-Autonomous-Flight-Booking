@@ -212,6 +212,24 @@ def add_to_calendar(date: str, details: str) -> str:
         date_parts = date.split('-')
         if len(date_parts) != 3:
             raise ValueError("Date must be in YYYY-MM-DD format")
+        
+        # Validate year, month, day are numeric
+        try:
+            year = int(date_parts[0])
+            month = int(date_parts[1])
+            day = int(date_parts[2])
+            
+            # Basic range validation
+            if year < 2024 or year > 2100:
+                raise ValueError("Year must be between 2024 and 2100")
+            if month < 1 or month > 12:
+                raise ValueError("Month must be between 1 and 12")
+            if day < 1 or day > 31:
+                raise ValueError("Day must be between 1 and 31")
+        except ValueError as e:
+            if "invalid literal" in str(e):
+                raise ValueError("Date parts must be numeric in YYYY-MM-DD format")
+            raise
             
         # Mock calendar addition (in production, this would use a calendar API)
         event_id = f"EVENT-{hash(f'{date}{details}') % 10000:04d}"

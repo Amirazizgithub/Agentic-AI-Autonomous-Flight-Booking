@@ -74,8 +74,7 @@ Agentic-AI-Autonomous-Flight-Booking/
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/Amirazizgithub/Agentic-AI-Autonomous-Flight-Booking.git]
-cd Agentic-AI-Autonomous-Flight-Booking
+git clone https://github.com/Amirazizgithub/Agentic-AI-Autonomous-Flight-Booking.git
 ```
 
 ### 2. Set Up Environment
